@@ -1,9 +1,12 @@
 package web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import web.model.Car;
+import web.service.CarService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class HelloController {
+
+//    private CarService carService;
+//
+//    @Autowired
+//    public void setCarService(CarService carService) {
+//        this.carService = carService;
+//    }
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
@@ -21,5 +31,12 @@ public class HelloController {
         model.addAttribute("messages", messages);
         return "hello";
     }
+
+//    @RequestMapping(value = "cars", method = RequestMethod.GET)
+//    public String allCar(ModelMap model) {
+//        List<Car> cars = carService.getAllCar();
+//        model.addAttribute("carsList", cars);
+//        return "cars";
+//    }
 
 }
