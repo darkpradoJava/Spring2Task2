@@ -22,13 +22,13 @@ public class CarController {
     }
 
     @RequestMapping(value = "/cars", method = RequestMethod.GET)
-    public String allCarWithHeader(ModelMap model, @RequestParam String locale) {
+    public String allCarWithHeader(ModelMap model, @RequestParam(value = "locale", defaultValue = "en") String locale) {
         List<Car> cars = carService.getAllCar();
-
         String loc;
         loc = (locale.equals("en")) ? "CARS" : "МАШИНЫ";
         model.addAttribute("locale", loc);
         model.addAttribute("carsList", cars);
+        System.out.println(cars.size());
         return "cars";
     }
 
